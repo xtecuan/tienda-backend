@@ -1,1 +1,2 @@
-web: heroku.sh && java $JAVA_OPTS -jar target/quarkus-app/quarkus-run.jar
+worker: sh heroku.sh
+web: java $JAVA_OPTS -jar target/quarkus-app/quarkus-run.jar
