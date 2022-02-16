@@ -7,6 +7,7 @@ import com.xtesoft.tienda.repositories.OrdenRepo;
 
 import javax.inject.Inject;
 import javax.json.Json;
+import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
@@ -33,6 +34,16 @@ public class OrdenResource {
             throw new WebApplicationException("Orden with id of " + id + " does not exist.", 404);
         }
         return entity;
+    }
+
+    @POST
+    @Transactional
+    public Response create(Orden orden) {
+        if (orden.getId() != null) {
+            throw new WebApplicationException("Id was invalidly set on request.", 422);
+        }
+        ordenRepo.persist(orden);
+        return Response.ok(orden).status(201).build();
     }
 
     @Provider
