@@ -12,6 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Path("/ordenes")
@@ -42,6 +43,7 @@ public class OrdenResource {
         if (orden.getId() != null) {
             throw new WebApplicationException("Id was invalidly set on request.", 422);
         }
+        orden.setFecha(new Timestamp(new java.util.Date().getTime()));
         ordenRepo.persist(orden);
         return Response.ok(orden).status(201).build();
     }
