@@ -58,6 +58,30 @@ public class ClienteResource {
         return Response.status(204).build();
     }
 
+    @PUT
+    @Path("{id}")
+    @Transactional
+    public Cliente update(@PathParam("id") Long id, Cliente cliente){
+        Cliente entity = clienteRepo.findById(id);
+        if(cliente==null){
+            throw new WebApplicationException("Cliente with id of " + id + " does not exist.", 404);
+        }
+        if(cliente.getApellidos()==null){
+            throw new WebApplicationException("Cliente apellidos was not set on request.", 422);
+        }
+        if(cliente.getNombres()==null){
+            throw new WebApplicationException("Cliente nombres was not set on request.", 422);
+        }
+        if(cliente.getCorreoe()==null){
+            throw new WebApplicationException("Cliente correoe was not set on request.", 422);
+        }
+        entity.setApellidos(cliente.getApellidos());
+        entity.setNombres(cliente.getNombres());
+        entity.setCorreoe(cliente.getCorreoe());
+        clienteRepo.persist(entity);
+        return entity;
+    }
+
 
     @Provider
     public static class ErrorMapper implements ExceptionMapper<Exception> {
