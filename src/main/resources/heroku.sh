@@ -50,3 +50,7 @@ if [[ "${DB_ECHO_VALUES,,}" == "true" ]]; then
   echo DB_JDBC_PASSWORD=[$DB_JDBC_PASSWORD]
 
 fi
+
+export JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
+
+java $JAVA_OPTS -jar target/quarkus-app/quarkus-run.jar
