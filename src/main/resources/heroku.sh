@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # =============================================================================
 # This script automatically splits the Heroku ENV DATABASE_URL variable
 # into the three JDBC variables needed from Quarkus.
