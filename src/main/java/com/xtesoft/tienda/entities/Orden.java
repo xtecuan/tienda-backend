@@ -2,6 +2,7 @@ package com.xtesoft.tienda.entities;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "ordenes")
@@ -17,6 +18,11 @@ public class Orden {
 
     @Column(name = "fecha", nullable = false)
     private Timestamp fecha;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "idOrden")
+    private List<DetalleOrden> detalleOrden;
+
+
 
     public Timestamp getFecha() {
         return fecha;
@@ -40,5 +46,13 @@ public class Orden {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<DetalleOrden> getDetalleOrden() {
+        return detalleOrden;
+    }
+
+    public void setDetalleOrden(List<DetalleOrden> detalleOrden) {
+        this.detalleOrden = detalleOrden;
     }
 }
