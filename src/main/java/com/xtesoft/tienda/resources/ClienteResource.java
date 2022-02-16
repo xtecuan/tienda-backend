@@ -46,6 +46,18 @@ public class ClienteResource {
         return Response.ok(cliente).status(201).build();
     }
 
+    @DELETE
+    @Path("{id}")
+    @Transactional
+    public Response delete(@PathParam("id") Long id) {
+        Cliente entity = clienteRepo.findById(id);
+        if (entity == null) {
+            throw new WebApplicationException("Cliente with id of " + id + " does not exist.", 404);
+        }
+        clienteRepo.delete(entity);
+        return Response.status(204).build();
+    }
+
 
     @Provider
     public static class ErrorMapper implements ExceptionMapper<Exception> {
