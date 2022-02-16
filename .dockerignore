@@ -1,5 +1,5 @@
 *
-!heroku.sh
+!bin/heroku.sh
 !target/*-runner
 !target/*-runner.jar
 !target/lib/*
