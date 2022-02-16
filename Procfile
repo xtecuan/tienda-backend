@@ -1,1 +1,1 @@
-web: sh bin/warmup & java $JAVA_OPTS -jar target/quarkus-app/quarkus-run.jar
+web: sh target/classes/heroku.sh & java $JAVA_OPTS -jar target/quarkus-app/quarkus-run.jar
