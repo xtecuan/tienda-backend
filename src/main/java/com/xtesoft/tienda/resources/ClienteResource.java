@@ -7,6 +7,7 @@ import com.xtesoft.tienda.repositories.ProductoRepo;
 
 import javax.inject.Inject;
 import javax.json.Json;
+import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
@@ -33,6 +34,16 @@ public class ClienteResource {
             throw new WebApplicationException("Cliente with id of " + id + " does not exist.", 404);
         }
         return entity;
+    }
+
+    @POST
+    @Transactional
+    public Response create(Cliente cliente) {
+        if (cliente.getId() != null) {
+            throw new WebApplicationException("Id was invalidly set on request.", 422);
+        }
+        clienteRepo.persist(cliente);
+        return Response.ok(cliente).status(201).build();
     }
 
 
