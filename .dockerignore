@@ -1,5 +1,5 @@
 *
-!bin/heroku.sh
+!bin/warmup
 !target/*-runner
 !target/*-runner.jar
 !target/lib/*
