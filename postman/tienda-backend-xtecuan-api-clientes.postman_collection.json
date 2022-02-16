@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "fe882eef-f7ff-4763-8aa0-1c2d5da80be3",
+		"name": "tienda-backend-xtecuan-api-clientes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombres\" : \"Darcy\",\r\n    \"apellidos\" : \"Rivera-Pineda\",\r\n    \"correoe\" : \"darcyriverapineda@gmail.com\"\r\n}"
+				},
+				"url": {
+					"raw": "https://tienda-backend-xtecuan.herokuapp.com/api/clientes",
+					"protocol": "https",
+					"host": [
+						"tienda-backend-xtecuan",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://tienda-backend-xtecuan.herokuapp.com/api/clientes",
+					"protocol": "https",
+					"host": [
+						"tienda-backend-xtecuan",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://tienda-backend-xtecuan.herokuapp.com/api/clientes/4",
+					"protocol": "https",
+					"host": [
+						"tienda-backend-xtecuan",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"clientes",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://tienda-backend-xtecuan.herokuapp.com/api/clientes/4",
+					"protocol": "https",
+					"host": [
+						"tienda-backend-xtecuan",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"clientes",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombres\" : \"Darcy Nathanael Benefacio\",\r\n    \"apellidos\" : \"Rivera-Pineda de la o y de la I\",\r\n    \"correoe\" : \"darcyriverapineda@gmail.com\"\r\n}"
+				},
+				"url": {
+					"raw": "https://tienda-backend-xtecuan.herokuapp.com/api/clientes/4",
+					"protocol": "https",
+					"host": [
+						"tienda-backend-xtecuan",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"clientes",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
