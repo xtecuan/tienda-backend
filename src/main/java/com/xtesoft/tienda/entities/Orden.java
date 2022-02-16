@@ -1,5 +1,6 @@
 package com.xtesoft.tienda.entities;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
@@ -19,7 +20,8 @@ public class Orden {
     @Column(name = "fecha", nullable = false)
     private Timestamp fecha;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "idOrden")
+    @JsonbTransient
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "idOrden", orphanRemoval = true)
     private List<DetalleOrden> detalleOrden;
 
 
