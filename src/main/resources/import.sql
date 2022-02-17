@@ -1,6 +1,7 @@
-INSERT INTO public.clientes (nombres, apellidos, correoe) VALUES('Julian', 'Rivera-Pineda', 'xtecuan@protonmail.com');
-INSERT INTO public.clientes (nombres, apellidos, correoe) VALUES('Jessica Gabriela', 'Hernández Vaquero', 'jessicagabrielavaquero22@gmail.com');
-INSERT INTO public.clientes (nombres, apellidos, correoe) VALUES('Marta Elisa del Pilar', 'Pineda de Rivera', 'martaederivera@gmail.com');
+INSERT INTO public.clientes (nombres, apellidos, correoe,clave,rol) VALUES('Julian', 'Rivera-Pineda', 'xtecuan@protonmail.com',digest('X4tecuan$', 'sha256'),'admin');
+INSERT INTO public.clientes (nombres, apellidos, correoe,clave,rol) VALUES('Jessica Gabriela', 'Hernández Vaquero', 'jessicagabrielavaquero22@gmail.com',digest('Jessita123$', 'sha256'),'user');
+INSERT INTO public.clientes (nombres, apellidos, correoe,clave,rol) VALUES('Marta Elisa del Pilar', 'Pineda de Rivera', 'martaederivera@gmail.com',digest('auxilio123$','sha256'),'user');
+INSERT INTO public.clientes (nombres, apellidos, correoe,clave,rol) VALUES('Gabriel', 'Bran', 'gabriel.bran@promerica.com.sv',digest('promerica123$','sha256'),'user');
 INSERT INTO public.productos (nombre, descripcion, precio) VALUES('Lenovo Thinkpad T470s', 'Laptop', 1350.85);
 INSERT INTO public.productos (nombre, descripcion, precio) VALUES('JBL TUNE500BT', 'Headphones', 36.45);
 INSERT INTO public.productos (nombre, descripcion, precio) VALUES('MI Earphones', 'Earphones', 8.78);

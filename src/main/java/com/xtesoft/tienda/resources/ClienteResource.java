@@ -37,6 +37,16 @@ public class ClienteResource {
     }
 
     @POST
+    @Path("/findByEmailAndPass")
+    public Cliente getSingle(@QueryParam("correoe") String correoe, @QueryParam("clave") String clave) {
+        Cliente entity = clienteRepo.findByEmailAndPass(correoe,clave);
+        if (entity == null) {
+            throw new WebApplicationException("Cliente with email of " + correoe + " does not exist.", 404);
+        }
+        return entity;
+    }
+
+    @POST
     @Transactional
     public Response create(Cliente cliente) {
         if (cliente.getId() != null) {

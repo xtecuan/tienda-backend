@@ -4,6 +4,7 @@ import com.xtesoft.tienda.adapters.DetalleOrdenAdapter;
 
 import javax.json.bind.annotation.JsonbTransient;
 import javax.json.bind.annotation.JsonbTypeAdapter;
+import javax.json.bind.annotation.JsonbTypeDeserializer;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;

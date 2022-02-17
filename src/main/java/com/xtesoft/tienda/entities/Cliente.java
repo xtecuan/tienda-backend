@@ -4,6 +4,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "clientes")
+@NamedQueries({
+        @NamedQuery(name = "Cliente.findByCorreoeAndClave", query = "SELECT c FROM Cliente c WHERE c.correoe = :correoe and c.clave = :clave ")
+})
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +21,9 @@ public class Cliente {
 
     @Column(name = "correoe", nullable = false, length = 100)
     private String correoe;
+
+    @Column(name = "clave", nullable = false, length = 100)
+    private String clave;
 
     public String getCorreoe() {
         return correoe;
@@ -49,5 +55,13 @@ public class Cliente {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 }
