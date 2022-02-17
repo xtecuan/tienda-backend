@@ -41,12 +41,12 @@ public class ClienteResource {
         return entity;
     }
 
-    @POST
+    @GET
     @Path("/findByEmailAndPass")
-    public Cliente getSingle(UserDTO user) {
-        Cliente entity = clienteRepo.findByEmailAndPass(user.getCorreoe(),user.getClave());
+    public Cliente getSingle(@QueryParam("correoe")String correo,@QueryParam("clave")String clave) {
+        Cliente entity = clienteRepo.findByEmailAndPass(correo,clave);
         if (entity == null) {
-            throw new WebApplicationException("Cliente with email of " + user.getCorreoe() + " does not exist.", 404);
+            throw new WebApplicationException("Cliente with email of " + correo + " does not exist.", 404);
         }
         log.info(entity);
         return entity;
