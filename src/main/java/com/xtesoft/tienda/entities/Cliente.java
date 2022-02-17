@@ -25,6 +25,9 @@ public class Cliente {
     @Column(name = "clave", nullable = false, length = 100)
     private String clave;
 
+    @Column(name = "rol", nullable = false, length = 25)
+    private String rol;
+
     public String getCorreoe() {
         return correoe;
     }
@@ -63,5 +66,13 @@ public class Cliente {
 
     public void setClave(String clave) {
         this.clave = clave;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }
