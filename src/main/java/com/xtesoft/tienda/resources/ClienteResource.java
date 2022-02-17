@@ -1,5 +1,6 @@
 package com.xtesoft.tienda.resources;
 
+import com.xtesoft.tienda.dtos.UserDTO;
 import com.xtesoft.tienda.entities.Cliente;
 import com.xtesoft.tienda.entities.Producto;
 import com.xtesoft.tienda.repositories.ClienteRepo;
@@ -38,10 +39,10 @@ public class ClienteResource {
 
     @POST
     @Path("/findByEmailAndPass")
-    public Cliente getSingle(@QueryParam("correoe") String correoe, @QueryParam("clave") String clave) {
-        Cliente entity = clienteRepo.findByEmailAndPass(correoe,clave);
+    public Cliente getSingle(UserDTO user) {
+        Cliente entity = clienteRepo.findByEmailAndPass(user.getCorreoe(),user.getClave());
         if (entity == null) {
-            throw new WebApplicationException("Cliente with email of " + correoe + " does not exist.", 404);
+            throw new WebApplicationException("Cliente with email of " + user.getCorreoe() + " does not exist.", 404);
         }
         return entity;
     }
