@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import javax.json.Json;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
@@ -43,6 +44,8 @@ public class ClienteResource {
 
     @GET
     @Path("/findByEmailAndPass")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
     public Cliente getSingle(@QueryParam("correoe")String correo,@QueryParam("clave")String clave) {
         Cliente entity = clienteRepo.findByEmailAndPass(correo,clave);
         if (entity == null) {
