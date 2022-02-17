@@ -5,6 +5,7 @@ import com.xtesoft.tienda.entities.Cliente;
 import com.xtesoft.tienda.entities.Producto;
 import com.xtesoft.tienda.repositories.ClienteRepo;
 import com.xtesoft.tienda.repositories.ProductoRepo;
+import org.jboss.logging.Logger;
 
 import javax.inject.Inject;
 import javax.json.Json;
@@ -21,6 +22,9 @@ import java.util.List;
 public class ClienteResource {
     @Inject
     ClienteRepo clienteRepo;
+
+    @Inject
+    Logger log;
 
     @GET
     public List<Cliente> getAll() {
@@ -44,6 +48,7 @@ public class ClienteResource {
         if (entity == null) {
             throw new WebApplicationException("Cliente with email of " + user.getCorreoe() + " does not exist.", 404);
         }
+        log.info(entity);
         return entity;
     }
 
