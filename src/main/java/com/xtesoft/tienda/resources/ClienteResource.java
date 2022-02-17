@@ -42,18 +42,7 @@ public class ClienteResource {
         return entity;
     }
 
-    @GET
-    @Path("/findByEmailAndPass")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Cliente getSingle(@QueryParam("correoe")String correo,@QueryParam("clave")String clave) {
-        Cliente entity = clienteRepo.findByEmailAndPass(correo,clave);
-        if (entity == null) {
-            throw new WebApplicationException("Cliente with email of " + correo + " does not exist.", 404);
-        }
-        log.info(entity);
-        return entity;
-    }
+
 
     @POST
     @Transactional
